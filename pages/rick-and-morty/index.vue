@@ -38,26 +38,25 @@ const comps: any = {
 </script>
 
 <template>
-  <app-layout :loading="status === 'pending'" :error="error">
-    <div class="space-y-6">
-      <div class="flex justify-between p-4">
-        <UTabs v-model="currentView" :items="tabs" />
-        <UInput
-          v-model="params.search"
-          size="xl"
-          placeholder="Search For Characters..."
-          class="w-96"
-          :ui="{
-            variant: {
-              outline: 'shadow-sm placeholder:text-pink-700 dark:text-white ring-4 ring-inset ring-pink-600 dark:ring-pink-600 bg-pink-950 focus:ring-2 focus:ring-{color}-500 dark:focus:ring-{color}-400',
-            },
-          }"
-          color="pink"
-          variant="outline"
-          @update:model-value="debouncedSearch"
-        />
-      </div>
-
+  <div class="space-y-6">
+    <div class="flex justify-between p-4">
+      <UTabs v-model="currentView" :items="tabs" />
+      <UInput
+        v-model="params.search"
+        size="xl"
+        placeholder="Search For Characters..."
+        class="w-96"
+        :ui="{
+          variant: {
+            outline: 'shadow-sm placeholder:text-pink-700 dark:text-white ring-4 ring-inset ring-pink-600 dark:ring-pink-600 bg-pink-950 focus:ring-2 focus:ring-{color}-500 dark:focus:ring-{color}-400',
+          },
+        }"
+        color="pink"
+        variant="outline"
+        @update:model-value="debouncedSearch"
+      />
+    </div>
+    <app-layout :loading="status === 'pending'" :error="error">
       <component :is="comps[currentView]" :data="ramStore.rickAndMorties" />
 
       <div class="flex items-center justify-center p-20">
@@ -65,6 +64,7 @@ const comps: any = {
           Load more
         </UButton>
       </div>
-    </div>
-  </app-layout>
+    </app-layout>
+  </div>
+  
 </template>
