@@ -66,5 +66,4 @@ const comps: any = {
       </div>
     </app-layout>
   </div>
-  
 </template>

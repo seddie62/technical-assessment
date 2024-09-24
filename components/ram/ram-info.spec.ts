@@ -33,7 +33,7 @@ describe('ram Info Card', () => {
     created: '2017-11-04T18:48:46.250Z',
   }
 
-  const mountComponent = (props: { data: RickAndMorty }) => {
+  const mountComponent = (props: { data: RickAndMorty | null }) => {
     return mount(RamInfo, {
       props,
       global: {
