@@ -1,3 +1,4 @@
+import process from 'node:process'
 import { pwa } from './config/pwa'
 import { appDescription } from './constants/index'
 
@@ -12,6 +13,7 @@ export default defineNuxtConfig({
     'nuxt-api-party',
     '@nuxt/image',
     'nuxt-icon',
+    '@nuxt/test-utils/module',
   ],
 
   pinia: {
@@ -82,7 +84,10 @@ export default defineNuxtConfig({
   apiParty: {
     endpoints: {
       pokemon: {
-        url: 'https://pokeapi.co/api/v2',
+        url: process.env.NUXT_PUBLIC_POKEMON_URL || '',
+      },
+      rickAndMorty: {
+        url: process.env.NUXT_PUBLIC_RICK_AND_MORTY_URL || '',
       },
     },
   },
