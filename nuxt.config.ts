@@ -1,6 +1,6 @@
 import { pwa } from './config/pwa'
 import { appDescription } from './constants/index'
-require("process")
+import process from  'process'
 
 export default defineNuxtConfig({
   modules: [
